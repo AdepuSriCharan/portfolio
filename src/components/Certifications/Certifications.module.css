@@ -1,0 +1,108 @@
+.certifications {
+    background: var(--bg-primary);
+}
+
+.header {
+    margin-bottom: 3rem;
+}
+
+.header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.header p {
+    color: var(--text-secondary);
+}
+
+.groups {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.group h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.list {
+    display: grid;
+    gap: 1rem;
+}
+
+.certCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    background: var(--gradient-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: all var(--transition);
+}
+
+.certCard:hover {
+    border-color: var(--border-color-hover);
+    transform: translateX(4px);
+}
+
+.certInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.certIcon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-muted);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+}
+
+.certName {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.credentialLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    transition: all var(--transition-fast);
+}
+
+.credentialLink:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+@media (max-width: 640px) {
+    .certCard {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .credentialLink {
+        width: 100%;
+        justify-content: center;
+    }
+}

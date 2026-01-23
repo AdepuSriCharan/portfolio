@@ -1,0 +1,214 @@
+.skills {
+    background: var(--bg-primary);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.header p {
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.skillsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.skillRow {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.skillCard {
+    position: relative;
+    background: var(--gradient-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    min-width: 280px;
+    max-width: 380px;
+    flex: 1;
+    transition: all var(--transition);
+    overflow: hidden;
+}
+
+.skillCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--card-accent, var(--accent));
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.skillCard:hover {
+    border-color: var(--card-accent, var(--accent));
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.skillCard:hover::before {
+    opacity: 1;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.iconWrapper {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-muted);
+    border-radius: var(--radius-md);
+    color: var(--accent);
+}
+
+.cardHeader h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.skillList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill {
+    position: relative;
+    padding: 0.5rem 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+    cursor: default;
+}
+
+.skill:hover {
+    border-color: var(--card-accent, var(--accent));
+    color: var(--text-primary);
+    background: rgba(99, 102, 241, 0.1);
+    transform: scale(1.05);
+}
+
+.skillWithLevel {
+    width: 100%;
+    padding: 0.5rem 0;
+}
+
+.skillWithLevel .skillName {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.progressBar {
+    height: 4px;
+    background: var(--bg-secondary);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+}
+
+.skillCard[data-category="languages"] {
+    --card-accent: #f7df1e;
+}
+
+.skillCard[data-category="backend"] {
+    --card-accent: #6db33f;
+}
+
+.skillCard[data-category="databases"] {
+    --card-accent: #336791;
+}
+
+.skillCard[data-category="mobile"] {
+    --card-accent: #61dafb;
+}
+
+.skillCard[data-category="devops"] {
+    --card-accent: #2496ed;
+}
+
+.skillCard[data-category="frontend"] {
+    --card-accent: #61dafb;
+}
+
+.skillCard[data-category="aiml"] {
+    --card-accent: #ff6f00;
+}
+
+.skillCard[data-category="languages"] .iconWrapper {
+    color: #f7df1e;
+    background: rgba(247, 223, 30, 0.15);
+}
+
+.skillCard[data-category="backend"] .iconWrapper {
+    color: #6db33f;
+    background: rgba(109, 179, 63, 0.15);
+}
+
+.skillCard[data-category="databases"] .iconWrapper {
+    color: #336791;
+    background: rgba(51, 103, 145, 0.15);
+}
+
+.skillCard[data-category="mobile"] .iconWrapper {
+    color: #61dafb;
+    background: rgba(97, 218, 251, 0.15);
+}
+
+.skillCard[data-category="devops"] .iconWrapper {
+    color: #2496ed;
+    background: rgba(36, 150, 237, 0.15);
+}
+
+.skillCard[data-category="frontend"] .iconWrapper {
+    color: #61dafb;
+    background: rgba(97, 218, 251, 0.15);
+}
+
+.skillCard[data-category="aiml"] .iconWrapper {
+    color: #ff6f00;
+    background: rgba(255, 111, 0, 0.15);
+}
+
+@media (max-width: 900px) {
+    .skillCard {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
