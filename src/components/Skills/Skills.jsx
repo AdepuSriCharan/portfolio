@@ -1,11 +1,12 @@
+import { motion } from 'framer-motion';
 import {
     FiCode,
     FiServer,
     FiDatabase,
+    FiSmartphone,
     FiCloud,
     FiLayout,
-    FiCpu,
-    FiSmartphone
+    FiCpu
 } from 'react-icons/fi';
 import { skills } from '../../data/constants';
 import styles from './Skills.module.css';
@@ -23,58 +24,100 @@ const iconMap = {
 const Skills = () => {
     const skillEntries = Object.entries(skills);
 
-    // Split into rows for visual balance
-    const firstRow = skillEntries.slice(0, 3);
-    const secondRow = skillEntries.slice(3, 5);
-    const thirdRow = skillEntries.slice(5);
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+            },
+        },
+    };
+
+    const cardVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, ease: 'easeOut' },
+        },
+    };
 
     const SkillCard = ({ categoryKey, category }) => {
         const Icon = iconMap[categoryKey] || FiCode;
         return (
-            <div
+            <motion.div
                 className={styles.skillCard}
                 data-category={categoryKey}
+                variants={cardVariants}
+                whileHover={{
+                    y: -5,
+                    boxShadow: '0 10px 30px -10px rgba(0,0,0,0.3)',
+                    borderColor: 'var(--accent)',
+                }}
             >
                 <div className={styles.cardHeader}>
-                    <div className={styles.iconWrapper}>
+                    <motion.div
+                        className={styles.iconWrapper}
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.5 }}
+                    >
                         <Icon size={20} />
-                    </div>
+                    </motion.div>
                     <h3>{category.title}</h3>
                 </div>
                 <div className={styles.skillList}>
                     {category.items.map((skill, index) => (
-                        <span key={index} className={styles.skill}>{skill}</span>
+                        <motion.span
+                            key={index}
+                            className={styles.skill}
+                            whileHover={{ scale: 1.1, color: 'var(--accent)' }}
+                        >
+                            {skill}
+                        </motion.span>
                     ))}
                 </div>
-            </div>
+            </motion.div>
         );
     };
 
     return (
         <section className={`section ${styles.skills}`} id="skills">
             <div className="container">
-                <div className={styles.header}>
+                <motion.div
+                    className={styles.header}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
                     <h2>Technical Skills</h2>
                     <p>Technologies and tools I use to build scalable, production-ready systems.</p>
-                </div>
+                </motion.div>
 
-                <div className={styles.skillsContainer}>
+                <motion.div
+                    className={styles.skillsContainer}
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     <div className={styles.skillRow}>
-                        {firstRow.map(([key, category]) => (
+                        {skillEntries.slice(0, 3).map(([key, category]) => (
                             <SkillCard key={key} categoryKey={key} category={category} />
                         ))}
                     </div>
                     <div className={styles.skillRow}>
-                        {secondRow.map(([key, category]) => (
+                        {skillEntries.slice(3, 5).map(([key, category]) => (
                             <SkillCard key={key} categoryKey={key} category={category} />
                         ))}
                     </div>
                     <div className={styles.skillRow}>
-                        {thirdRow.map(([key, category]) => (
+                        {skillEntries.slice(5).map(([key, category]) => (
                             <SkillCard key={key} categoryKey={key} category={category} />
                         ))}
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

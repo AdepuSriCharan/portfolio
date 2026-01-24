@@ -12,7 +12,8 @@ export const personalInfo = {
     phone: "+91-8297057873",
     github: "https://github.com/AdepuSriCharan",
     linkedin: "https://www.linkedin.com/in/adepu-sri-charan-b6b0b2298/",
-    resumeLink: "https://drive.google.com/file/d/16nK8gC0k-0p51Y0H6cAZWpWyK_f1cbxX/view?usp=drive_link"
+    resumeLink: "https://drive.google.com/file/d/16nK8gC0k-0p51Y0H6cAZWpWyK_f1cbxX/view?usp=drive_link",
+    profileImage: "https://lh3.googleusercontent.com/d/12WTG2HL182cr5nou6e8aR4npjYjqMMyz"
 };
 
 export const aboutMe = {

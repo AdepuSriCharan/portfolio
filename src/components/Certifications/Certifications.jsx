@@ -1,58 +1,108 @@
+import { motion } from 'framer-motion';
 import { FiAward, FiExternalLink } from 'react-icons/fi';
 import { certifications } from '../../data/constants';
 import styles from './Certifications.module.css';
 
 const Certifications = () => {
-    // Group certifications by issuer
     const oracleCerts = certifications.filter(cert => cert.issuer === 'Oracle');
     const nptelCerts = certifications.filter(cert => cert.issuer === 'NPTEL');
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, x: -20 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: { duration: 0.5, ease: 'easeOut' },
+        },
+    };
+
     const CertCard = ({ cert }) => (
-        <div className={styles.certCard}>
+        <motion.div
+            className={styles.certCard}
+            variants={itemVariants}
+            whileHover={{
+                x: 5,
+                backgroundColor: 'rgba(99, 102, 241, 0.05)',
+                transition: { duration: 0.2 }
+            }}
+        >
             <div className={styles.certInfo}>
-                <div className={styles.certIcon}>
+                <motion.div
+                    className={styles.certIcon}
+                    whileHover={{ rotate: 15, scale: 1.1 }}
+                >
                     <FiAward size={20} />
-                </div>
+                </motion.div>
                 <span className={styles.certName}>{cert.name}</span>
             </div>
-            <a
+            <motion.a
                 href={cert.credential}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.credentialLink}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
             >
                 <FiExternalLink size={14} />
                 View Credential
-            </a>
-        </div>
+            </motion.a>
+        </motion.div>
     );
 
     return (
         <section className={`section ${styles.certifications}`} id="certifications">
             <div className="container">
-                <div className={styles.header}>
+                <motion.div
+                    className={styles.header}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
                     <h2>Certifications</h2>
                     <p>Professional certifications validating cloud and programming expertise.</p>
-                </div>
+                </motion.div>
 
                 <div className={styles.groups}>
-                    <div className={styles.group}>
+                    <motion.div
+                        className={styles.group}
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.2 }}
+                    >
                         <h3>Oracle Cloud Infrastructure</h3>
                         <div className={styles.list}>
                             {oracleCerts.map((cert, index) => (
                                 <CertCard key={index} cert={cert} />
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className={styles.group}>
+                    <motion.div
+                        className={styles.group}
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.2 }}
+                    >
                         <h3>NPTEL</h3>
                         <div className={styles.list}>
                             {nptelCerts.map((cert, index) => (
                                 <CertCard key={index} cert={cert} />
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
