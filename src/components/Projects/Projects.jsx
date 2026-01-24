@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiGithub, FiGitlab, FiArrowRight, FiStar, FiUsers, FiAward } from 'react-icons/fi';
+import { FiGithub, FiGitlab, FiArrowRight, FiStar, FiUsers, FiAward, FiSmartphone, FiUser } from 'react-icons/fi';
 import { projects } from '../../data/constants';
 import styles from './Projects.module.css';
 
@@ -104,18 +104,49 @@ const Projects = () => {
                                 ))}
                             </ul>
 
-                            {project.github && (
+                            {(project.github || project.androidRepo || project.collaborator) && (
                                 <div className={styles.cardFooter}>
-                                    <motion.a
-                                        href={project.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={styles.link}
-                                        whileHover={{ x: 5 }}
-                                    >
-                                        {project.isGitLab ? <FiGitlab size={18} /> : <FiGithub size={18} />}
-                                        View on {project.isGitLab ? 'GitLab' : 'GitHub'}
-                                    </motion.a>
+                                    <div className={styles.links}>
+                                        {project.github && (
+                                            <motion.a
+                                                href={project.github}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={styles.link}
+                                                whileHover={{ x: 5 }}
+                                            >
+                                                {project.isGitLab ? <FiGitlab size={18} /> : <FiGithub size={18} />}
+                                                <span>View on {project.isGitLab ? 'GitLab' : 'GitHub'}</span>
+                                            </motion.a>
+                                        )}
+                                        {project.androidRepo && (
+                                            <motion.a
+                                                href={project.androidRepo}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={styles.link}
+                                                whileHover={{ x: 5 }}
+                                            >
+                                                <FiSmartphone size={18} />
+                                                <span>Android App</span>
+                                            </motion.a>
+                                        )}
+                                    </div>
+                                    {project.collaborator && (
+                                        <div className={styles.collaborator}>
+                                            <FiUser size={14} />
+                                            <span>Collaborated with </span>
+                                            <motion.a
+                                                href={project.collaborator.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={styles.collabLink}
+                                                whileHover={{ color: 'var(--accent)' }}
+                                            >
+                                                {project.collaborator.name}
+                                            </motion.a>
+                                        </div>
+                                    )}
                                 </div>
                             )}
                         </motion.div>

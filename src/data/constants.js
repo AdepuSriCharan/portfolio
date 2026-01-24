@@ -75,9 +75,15 @@ export const projects = [
             "Designed RESTful APIs with Spring Boot for album and user management",
             "Integrated Spotify and Last.fm APIs for rich music metadata",
             "Secured backend with JWT-based authentication",
-            "Deployed application on AWS EC2 with production configuration"
+            "Deployed application on AWS EC2 with production configuration",
+            "Collaborated with Saketh Pathike who built the Android app using Kotlin & Jetpack Compose"
         ],
         github: "https://github.com/MusicBoxd",
+        androidRepo: "https://github.com/MusicBoxd/android",
+        collaborator: {
+            name: "Saketh Pathike",
+            link: "https://sakethpathike.github.io/"
+        },
         architectureType: "Monolithic"
     },
     {

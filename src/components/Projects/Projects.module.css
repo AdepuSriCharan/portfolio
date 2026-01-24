@@ -170,6 +170,15 @@
     margin-top: auto;
     padding-top: 1rem;
     border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .link {
@@ -184,6 +193,31 @@
 
 .link:hover {
     color: var(--accent);
+}
+
+.collaborator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.collaborator svg {
+    color: var(--accent);
+}
+
+.collabLink {
+    color: var(--text-primary);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: all var(--transition-fast);
+}
+
+.collabLink:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
 }
 
 @media (min-width: 768px) {
