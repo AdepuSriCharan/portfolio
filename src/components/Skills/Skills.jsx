@@ -87,36 +87,23 @@ const Skills = () => {
                 <motion.div
                     className={styles.header}
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
+                    <p className="section-eyebrow">Skills</p>
                     <h2>Technical Skills</h2>
-                    <p>Technologies and tools I use to build scalable, production-ready systems.</p>
+                    <p>Core technologies I use to build secure, scalable, and production-ready applications.</p>
                 </motion.div>
 
                 <motion.div
                     className={styles.skillsContainer}
                     variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
+                    initial={false}
+                    animate="visible"
                 >
-                    <div className={styles.skillRow}>
-                        {skillEntries.slice(0, 3).map(([key, category]) => (
-                            <SkillCard key={key} categoryKey={key} category={category} />
-                        ))}
-                    </div>
-                    <div className={styles.skillRow}>
-                        {skillEntries.slice(3, 5).map(([key, category]) => (
-                            <SkillCard key={key} categoryKey={key} category={category} />
-                        ))}
-                    </div>
-                    <div className={styles.skillRow}>
-                        {skillEntries.slice(5).map(([key, category]) => (
-                            <SkillCard key={key} categoryKey={key} category={category} />
-                        ))}
-                    </div>
+                    {skillEntries.map(([key, category]) => (
+                        <SkillCard key={key} categoryKey={key} category={category} />
+                    ))}
                 </motion.div>
             </div>
         </section>

@@ -3,25 +3,24 @@
 }
 
 .header {
-    text-align: center;
-    margin-bottom: 3rem;
+    text-align: left;
+    margin-bottom: 2rem;
 }
 
 .header h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 600;
+    margin-bottom: 0.72rem;
 }
 
 .header p {
     color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 760px;
 }
 
 .grid {
     display: grid;
-    gap: 2rem;
+    gap: 1.4rem;
 }
 
 .projectCard.featured {
@@ -32,59 +31,60 @@
     background: var(--gradient-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
-    padding: 2rem;
+    padding: 1.25rem;
     transition: all var(--transition);
     display: flex;
     flex-direction: column;
+    box-shadow: var(--shadow-sm);
 }
 
 .projectCard:hover {
-    border-color: var(--accent);
-    transform: translateY(-4px);
+    border-color: var(--border-color-hover);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-md);
 }
 
 .projectCard.featured {
-    background: linear-gradient(145deg, rgba(99, 102, 241, 0.08) 0%, var(--bg-card) 100%);
-    border-color: rgba(99, 102, 241, 0.3);
+    background: linear-gradient(130deg, var(--accent-muted) 0%, var(--bg-card) 100%);
 }
 
 .cardHeader {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-bottom: 0.9rem;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.65rem;
 }
 
 .cardTitle {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.45rem;
 }
 
 .cardTitle h3 {
-    font-size: 1.35rem;
+    font-size: 1.18rem;
     font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
 .badges {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.45rem;
     flex-wrap: wrap;
 }
 
 .badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.7rem;
-    font-weight: 600;
+    gap: 0.3rem;
+    padding: 0.22rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.64rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.08em;
 }
 
 .featuredBadge {
@@ -93,51 +93,54 @@
 }
 
 .majorBadge {
-    background: rgba(34, 197, 94, 0.15);
-    color: #22c55e;
-    border: 1px solid rgba(34, 197, 94, 0.3);
+    background: rgba(20, 148, 109, 0.12);
+    color: #157c5d;
+    border: 1px solid rgba(20, 148, 109, 0.3);
 }
 
 .hackathonBadge {
-    background: rgba(245, 158, 11, 0.15);
-    color: #f59e0b;
-    border: 1px solid rgba(245, 158, 11, 0.3);
+    background: rgba(232, 140, 36, 0.12);
+    color: #b96a18;
+    border: 1px solid rgba(232, 140, 36, 0.3);
 }
 
 .archBadge {
-    padding: 0.25rem 0.75rem;
+    padding: 0.26rem 0.68rem;
     background: var(--accent-muted);
     color: var(--accent);
-    border-radius: var(--radius-sm);
-    font-size: 0.7rem;
-    font-weight: 600;
+    border-radius: 999px;
+    font-size: 0.64rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.09em;
     white-space: nowrap;
+    border: 1px solid var(--border-color-hover);
 }
 
 .description {
     color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
+    margin-bottom: 1.1rem;
+    line-height: 1.75;
     flex-grow: 1;
+    font-size: 0.92rem;
 }
 
 .techStack {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    gap: 0.45rem;
+    margin-bottom: 1.1rem;
 }
 
 .tech {
-    padding: 0.35rem 0.85rem;
-    background: var(--bg-primary);
+    padding: 0.3rem 0.68rem;
+    background: var(--bg-card-hover);
     border: 1px solid var(--border-color);
-    border-radius: 50px;
-    font-size: 0.8rem;
+    border-radius: 999px;
+    font-size: 0.76rem;
     color: var(--text-secondary);
     transition: all var(--transition-fast);
+    font-family: var(--font-mono);
 }
 
 .tech:hover {
@@ -147,47 +150,47 @@
 
 .highlights {
     list-style: none;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .highlights li {
     display: flex;
     align-items: flex-start;
-    gap: 0.6rem;
-    margin-bottom: 0.6rem;
+    gap: 0.5rem;
+    margin-bottom: 0.48rem;
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.86rem;
     line-height: 1.5;
 }
 
 .highlights li svg {
     color: var(--accent);
     flex-shrink: 0;
-    margin-top: 0.15rem;
+    margin-top: 0.12rem;
 }
 
 .cardFooter {
     margin-top: auto;
-    padding-top: 1rem;
+    padding-top: 0.8rem;
     border-top: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .links {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
 .link {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.42rem;
     color: var(--text-primary);
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 0.84rem;
+    font-weight: 700;
     transition: color var(--transition-fast);
 }
 
@@ -198,8 +201,8 @@
 .collaborator {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.85rem;
+    gap: 0.42rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
 }
 
@@ -209,7 +212,7 @@
 
 .collabLink {
     color: var(--text-primary);
-    font-weight: 500;
+    font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: all var(--transition-fast);
@@ -220,7 +223,7 @@
     text-decoration-color: var(--accent);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 920px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -228,10 +231,10 @@
 
 @media (max-width: 640px) {
     .projectCard {
-        padding: 1.5rem;
+        padding: 1rem;
     }
 
     .cardTitle h3 {
-        font-size: 1.15rem;
+        font-size: 1.06rem;
     }
 }

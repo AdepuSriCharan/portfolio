@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiDownload, FiChevronDown } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiDownload, FiCode, FiChevronDown, FiMail } from 'react-icons/fi';
 import { personalInfo } from '../../data/constants';
 import styles from './Hero.module.css';
 
@@ -40,6 +40,12 @@ const Hero = () => {
         },
     };
 
+    const heroStats = [
+        { value: "1st Place", label: "SIH Hackathon 2K26" },
+        { value: "4x OCI", label: "Oracle Certifications" },
+        { value: "150+", label: "LeetCode Problems" }
+    ];
+
     return (
         <section className={styles.hero} id="hero">
             <motion.div
@@ -75,11 +81,9 @@ const Hero = () => {
                     initial="hidden"
                     animate="visible"
                 >
-                    <motion.p className={styles.greeting} variants={itemVariants}>
-                        Hello, I'm
-                    </motion.p>
+                    <motion.p className="section-eyebrow" variants={itemVariants}>Portfolio</motion.p>
                     <motion.h1 className={styles.name} variants={itemVariants}>
-                        <span className="text-gradient">{personalInfo.name}</span>
+                        {personalInfo.name}
                     </motion.h1>
                     <div className={styles.roleContainer}>
                         <AnimatePresence mode="wait">
@@ -97,6 +101,9 @@ const Hero = () => {
                     </div>
                     <motion.p className={styles.tagline} variants={itemVariants}>
                         {personalInfo.tagline}
+                    </motion.p>
+                    <motion.p className={styles.atsLine} variants={itemVariants}>
+                        <strong>Core Stack:</strong> {personalInfo.atsKeywords.join(' · ')}
                     </motion.p>
 
                     <motion.div className={styles.buttons} variants={itemVariants}>
@@ -121,6 +128,24 @@ const Hero = () => {
                             <FiLinkedin /> LinkedIn
                         </motion.a>
                         <motion.a
+                            href={personalInfo.leetcode}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-secondary"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <FiCode /> LeetCode
+                        </motion.a>
+                        <motion.a
+                            href="#contact"
+                            className="btn btn-secondary"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <FiMail /> Contact
+                        </motion.a>
+                        <motion.a
                             href={personalInfo.resumeLink}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -130,6 +155,15 @@ const Hero = () => {
                         >
                             <FiDownload /> Resume
                         </motion.a>
+                    </motion.div>
+
+                    <motion.div className={styles.stats} variants={itemVariants}>
+                        {heroStats.map((stat, index) => (
+                            <div key={index} className={styles.statCard}>
+                                <span className={styles.statValue}>{stat.value}</span>
+                                <span className={styles.statLabel}>{stat.label}</span>
+                            </div>
+                        ))}
                     </motion.div>
                 </motion.div>
             </motion.div>

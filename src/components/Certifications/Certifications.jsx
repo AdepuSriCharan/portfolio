@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { FiAward, FiExternalLink } from 'react-icons/fi';
-import { certifications } from '../../data/constants';
+import { certifications, personalInfo } from '../../data/constants';
 import styles from './Certifications.module.css';
 
 const Certifications = () => {
@@ -32,7 +32,7 @@ const Certifications = () => {
             variants={itemVariants}
             whileHover={{
                 x: 5,
-                backgroundColor: 'rgba(99, 102, 241, 0.05)',
+                backgroundColor: 'rgba(13, 110, 253, 0.07)',
                 transition: { duration: 0.2 }
             }}
         >
@@ -65,21 +65,31 @@ const Certifications = () => {
                 <motion.div
                     className={styles.header}
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
+                    <p className="section-eyebrow">Certifications</p>
                     <h2>Certifications</h2>
                     <p>Professional certifications validating cloud and programming expertise.</p>
+                    <motion.a
+                        href={personalInfo.allCertificatesLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.allCertLink}
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                    >
+                        <FiExternalLink size={14} />
+                        View All Certificates
+                    </motion.a>
                 </motion.div>
 
                 <div className={styles.groups}>
                     <motion.div
                         className={styles.group}
                         variants={containerVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.2 }}
+                        initial={false}
+                        animate="visible"
                     >
                         <h3>Oracle Cloud Infrastructure</h3>
                         <div className={styles.list}>
@@ -92,9 +102,8 @@ const Certifications = () => {
                     <motion.div
                         className={styles.group}
                         variants={containerVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.2 }}
+                        initial={false}
+                        animate="visible"
                     >
                         <h3>NPTEL</h3>
                         <div className={styles.list}>

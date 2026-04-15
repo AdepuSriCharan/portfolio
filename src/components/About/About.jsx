@@ -34,6 +34,7 @@ const About = () => {
                     className={styles.sectionHeader}
                     style={{ opacity: headerOpacity, y: headerY }}
                 >
+                    <p className="section-eyebrow">About</p>
                     <h2>About Me</h2>
                     <div className={styles.headerUnderline}></div>
                 </motion.div>
@@ -41,9 +42,8 @@ const About = () => {
                 <motion.div
                     className={styles.content}
                     variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
+                    initial={false}
+                    animate="visible"
                 >
                     <motion.div className={styles.left} variants={itemVariants}>
                         <p className={styles.summary}>{aboutMe.summary}</p>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiGithub, FiGitlab, FiArrowRight, FiStar, FiUsers, FiAward, FiSmartphone, FiUser } from 'react-icons/fi';
+import { FiGithub, FiGitlab, FiArrowRight, FiStar, FiUsers, FiAward, FiSmartphone, FiUser, FiExternalLink } from 'react-icons/fi';
 import { projects } from '../../data/constants';
 import styles from './Projects.module.css';
 
@@ -29,20 +29,19 @@ const Projects = () => {
                 <motion.div
                     className={styles.header}
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
+                    <p className="section-eyebrow">Projects</p>
                     <h2>Projects</h2>
-                    <p>Production-ready applications showcasing full-stack engineering and system design.</p>
+                    <p>Case studies focused on architecture, product impact, and delivery ownership.</p>
                 </motion.div>
 
                 <motion.div
                     className={styles.grid}
                     variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
+                    initial={false}
+                    animate="visible"
                 >
                     {projects.map((project, index) => (
                         <motion.div
@@ -104,7 +103,7 @@ const Projects = () => {
                                 ))}
                             </ul>
 
-                            {(project.github || project.androidRepo || project.collaborator) && (
+                            {(project.github || project.androidRepo || project.collaborator || project.externalLinks?.length) && (
                                 <div className={styles.cardFooter}>
                                     <div className={styles.links}>
                                         {project.github && (
@@ -119,6 +118,19 @@ const Projects = () => {
                                                 <span>View on {project.isGitLab ? 'GitLab' : 'GitHub'}</span>
                                             </motion.a>
                                         )}
+                                        {project.externalLinks?.map((externalLink, linkIndex) => (
+                                            <motion.a
+                                                key={linkIndex}
+                                                href={externalLink.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={styles.link}
+                                                whileHover={{ x: 5 }}
+                                            >
+                                                <FiExternalLink size={18} />
+                                                <span>{externalLink.label}</span>
+                                            </motion.a>
+                                        ))}
                                         {project.androidRepo && (
                                             <motion.a
                                                 href={project.androidRepo}

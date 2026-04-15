@@ -1,35 +1,40 @@
+const withBase = (assetPath) => `${import.meta.env.BASE_URL}${assetPath.replace(/^\//, '')}`;
+
 export const personalInfo = {
     name: "Adepu Sri Charan",
     roles: [
         "Java Backend Engineer",
-        "Full Stack Developer",
-        "Microservices Architect",
-        "Cloud Engineer",
-        "Mobile App Developer"
+        "Full-Stack Developer",
+        "Microservices Engineer",
+        "Cloud & DevOps Enthusiast",
+        "LLM & RAG Explorer"
     ],
-    tagline: "Building robust backend systems & distributed architectures",
+    tagline: "Building scalable backend systems and practical AI-enabled products",
     email: "sricharan.adepu36@gmail.com",
     phone: "+91-8297057873",
     github: "https://github.com/AdepuSriCharan",
     linkedin: "https://www.linkedin.com/in/adepu-sri-charan-b6b0b2298/",
+    leetcode: "https://leetcode.com/u/Adepu_Sri_Charan/",
+    atsKeywords: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL", "Docker", "React Native", "AWS", "System Design"],
     resumeLink: "https://drive.google.com/file/d/16nK8gC0k-0p51Y0H6cAZWpWyK_f1cbxX/view?usp=drive_link",
-    profileImage: "https://lh3.googleusercontent.com/d/12WTG2HL182cr5nou6e8aR4npjYjqMMyz"
+    profileImage: withBase("/Profile_1.png"),
+    allCertificatesLink: "https://drive.google.com/drive/folders/1S_Az2zSxklRcdhTOYgDD-cATXJ7_UbE9?usp=sharing"
 };
 
 export const aboutMe = {
-    summary: `Full-stack engineer with deep expertise in backend systems, microservices architecture, and cloud-native applications. 
-I specialize in designing scalable APIs, secure authentication flows, and event-driven distributed systems using Spring Boot, Kafka, and gRPC.
+    summary: `Full-stack engineer focused on backend architecture, microservices, and cloud-native development using Java, Spring Boot, Kafka, and PostgreSQL.
+I design secure and scalable systems with clean APIs, event-driven workflows, and production-ready deployments.
 
-I build end-to-end solutions from database modeling and inter-service communication to mobile experiences with React Native and Expo ensuring performance, reliability, and real-world scalability. 
-Currently exploring ML/AI with Python, TensorFlow, and PyTorch to integrate intelligent, data-driven features into backend-driven systems.`,
+I also build end-to-end products with React Native and integrate applied AI features into real-world platforms.
+Currently exploring trends in LLMs, RAG systems, and agentic workflows to build practical, reliable AI experiences.`,
     highlights: [
-        "Built complete end-to-end systems: backend, database design, frontend, and ML pipelines",
+        "Winner (1st Place) at Smart Innovation Hackathon 2K26 with an SIH-aligned health-tech solution",
+        "Team Lead for hackathon and major project implementations",
+        "Built complete end-to-end systems across backend, mobile, and data layers",
         "Experienced with Spring Boot, Spring Security, Spring Cloud, and microservices patterns",
-        "Developed mobile applications using React Native with Expo for cross-platform deployment",
-        "Deployed applications on AWS and experimented with ngrok and Cloudflare tunnels for local development",
-        "Built event-driven systems using Apache Kafka for real-time data processing",
-        "Exploring Python, TensorFlow, and PyTorch for machine learning applications",
-        "Oracle Cloud Infrastructure certified professional (4 certifications)"
+        "Developed event-driven services using Kafka, Redis, and gRPC communication",
+        "Exploring LLMs, RAG pipelines, and AI-assisted product workflows",
+        "Oracle Cloud Infrastructure certified across Foundations, Developer, DevOps, and AI"
     ]
 };
 
@@ -37,19 +42,62 @@ export const projects = [
     {
         name: "LifeLink",
         featured: true,
-        description: "A comprehensive health-tech platform connecting blood, organ, stem cell, and tissue donors with recipients. Single-handedly architected and developed the entire system from scratch—backend microservices, database design, mobile frontend, and ML-powered matching algorithms.",
-        techStack: ["Java", "Spring Boot", "Microservices", "PostgreSQL", "Kafka", "Docker", "React Native", "Expo", "Python", "TensorFlow"],
+        description: "A health-tech platform connecting blood, organ, stem cell, and tissue donors with recipients through secure and scalable digital workflows.",
+        techStack: ["Java", "Spring Boot", "Spring Cloud", "PostgreSQL", "Kafka", "Redis", "Docker", "React Native", "Expo", "Python"],
         highlights: [
-            "Sole developer: Built complete backend, frontend, database, and ML components",
-            "Architected 6+ microservices with event-driven Kafka communication",
-            "Implemented ML-based donor-recipient matching with 90%+ accuracy",
-            "Designed secure workflows with role-based access control and JWT authentication",
-            "Implemented high-performance inter-service communication using gRPC for low-latency, strongly-typed microservice interactions",
-            "Built real-time notifications using WebSockets",
-            "Containerized all services with Docker for consistent deployment"
+            "Designed and deployed a distributed microservices system handling real-time donor-recipient matching with Kafka-based event streaming",
+            "Implemented secure authentication and role-based authorization using JWT and Spring Security",
+            "Built event-driven communication with Kafka and caching with Redis",
+            "Developed React Native mobile workflows with notifications and map-enabled discovery",
+            "Enabled low-latency inter-service communication using gRPC"
         ],
         github: "https://github.com/LifeLink-The-Digital-Bridge",
         architectureType: "Full-Stack Microservices"
+    },
+    {
+        name: "SIH 2026: Digital Health Record Management System for Migrant Workers in Kerala aligned with sustainable development goals.",
+        featured: true,
+        isHackathon: true,
+        isMajorProject: true,
+        description: "Dedicated Smart Innovation Hackathon 2K26 winning project based on the SIH-aligned problem statement for Kerala migrant workers, extended and integrated with LifeLink for continuity of care and emergency donor support.",
+        techStack: ["React Native", "Expo", "Java", "Spring Boot", "PostgreSQL", "Kafka", "LifeLink Integration"],
+        highlights: [
+            "Won 1st Place at Smart Innovation Hackathon 2K26 (JBIET)",
+            "Served as Team Lead, driving architecture decisions, delivery planning, and demo execution",
+            "Selected and implemented the SIH-aligned theme: digital health records for migrant workers in Kerala",
+            "Designed dedicated role-based workflows and screens for Migrant, Doctor, and NGO users",
+            "Integrated health records flow with LifeLink modules to support emergency and referral scenarios"
+        ],
+        externalLinks: [
+            {
+                label: "LinkedIn Post",
+                url: "https://www.linkedin.com/feed/update/urn:li:activity:7445754810794094592/"
+            },
+            {
+                label: "Winner Certificate",
+                url: "https://drive.google.com/file/d/1gjv55Ak9qw59XMKMvFCSv08lTkMA9_gv/view?usp=drive_link"
+            }
+        ],
+        architectureType: "Hackathon Winner"
+    },
+    {
+        name: "Spring Security Starter",
+        featured: true,
+        description: "A zero-configuration Spring Boot starter published to Maven Central for plug-and-play JWT authentication, authorization, and token lifecycle management.",
+        techStack: ["Java", "Spring Boot", "Spring Security", "Maven", "JWT"],
+        highlights: [
+            "Published reusable starter on Maven Central for rapid API security adoption",
+            "Implemented role, permission, and ownership-based authorization patterns",
+            "Supported multi-mode authentication including Internal, OAuth2, and Keycloak-ready design"
+        ],
+        github: "https://github.com/AdepuSriCharan/spring-security-starter",
+        externalLinks: [
+            {
+                label: "Maven Central",
+                url: "https://central.sonatype.com/artifact/io.github.adepusricharan/security-starter"
+            }
+        ],
+        architectureType: "Developer Tools"
     },
     {
         name: "AR Car Showcase",
@@ -154,7 +202,7 @@ export const skills = {
     },
     aiml: {
         title: "AI/ML (Exploring)",
-        items: ["TensorFlow", "PyTorch", "scikit-learn", "Python ML"],
+        items: ["LLMs", "RAG", "Vector Search", "Agentic Workflows", "Python ML"],
         color: "#ff6f00"
     }
 };
@@ -163,37 +211,37 @@ export const certifications = [
     {
         name: "Oracle Cloud Infrastructure Foundations Associate",
         issuer: "Oracle",
-        credential: "https://drive.google.com/file/d/1etL5o8uW3qpXQ668eshl9p59_x15juOt/view"
+        credential: "https://drive.google.com/file/d/15GOOAkdfSna4pCpVxRsmoG7D8yQ1goG1/view?usp=drive_link"
     },
     {
         name: "Oracle Cloud Infrastructure Developer Professional",
         issuer: "Oracle",
-        credential: "https://drive.google.com/file/d/11ebxxkvop0obuv1Rtpk0gpi0y1a5bpxi/view"
+        credential: "https://drive.google.com/file/d/1237Jd1BcOSW7mvfAS3OPGp6XbA4OEDAW/view?usp=drive_link"
     },
     {
         name: "Oracle Cloud Infrastructure DevOps Professional",
         issuer: "Oracle",
-        credential: "https://drive.google.com/file/d/1a3xf0_VnjJfHxmM_EAYl7sP_IhuE8B-Z/view"
+        credential: "https://drive.google.com/file/d/1z3NVYmQURjaidHmSLSJt4D60a4XciJfB/view?usp=drive_link"
     },
     {
         name: "Oracle Cloud Infrastructure AI Foundations Associate",
         issuer: "Oracle",
-        credential: "https://drive.google.com/file/d/1QIzGlICVEmp-tsXCiXezZKaIoyZQVUWa/view"
+        credential: "https://drive.google.com/file/d/1nv16lwXdeazSq84SUFbK4y5JNlDf-FFD/view?usp=drive_link"
     },
     {
         name: "Programming in Java",
         issuer: "NPTEL",
-        credential: "https://drive.google.com/file/d/1S4Y582nPmiCt8KtXOahd6ctIPwlXj8nW/view"
+        credential: "https://drive.google.com/file/d/1zy6lXqNC6J2hpAEu03HbNP6chN-s-RhM/view?usp=drive_link"
     },
     {
         name: "Data Structures and Algorithms using Java",
         issuer: "NPTEL",
-        credential: "https://drive.google.com/file/d/18WKHDBj2Lqj_mb3L6siNN19HIbe7zP35/view"
+        credential: "https://drive.google.com/file/d/1Nwbajbj405FBoGFl2tLor8FKwm6nushn/view?usp=drive_link"
     },
     {
         name: "The Joy of Computing using Python",
         issuer: "NPTEL",
-        credential: "https://drive.google.com/file/d/1Zo-XrGEZqDEJnkYy9pNv2Sgx30pwqDm6/view"
+        credential: "https://drive.google.com/file/d/16P_Tnwqg7DvSGiaBGHSrCxGstBtzJ2O0/view?usp=drive_link"
     }
 ];
 
@@ -202,8 +250,8 @@ export const education = [
         institution: "JB Institute of Engineering & Technology",
         location: "Moinabad Mandal, Hyderabad",
         degree: "B.Tech in Computer Science and Engineering",
-        duration: "October 2022 – Present",
-        grade: "CGPA: 8.4",
+        duration: "October 2022 – 2026",
+        grade: "CGPA: 8.2",
         type: "college"
     },
     {
@@ -230,4 +278,10 @@ export const navLinks = [
     { name: "Skills", href: "#skills" },
     { name: "Certifications", href: "#certifications" },
     { name: "Contact", href: "#contact" }
+];
+
+export const themeOptions = [
+    { id: "dark-theme", label: "Dark" },
+    { id: "light-theme", label: "Light" },
+    { id: "midnight-theme", label: "Midnight" }
 ];

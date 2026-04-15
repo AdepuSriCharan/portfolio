@@ -1,78 +1,102 @@
 .certifications {
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
 }
 
 .header {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .header h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 600;
+    margin-bottom: 0.66rem;
 }
 
 .header p {
     color: var(--text-secondary);
+    max-width: 660px;
+}
+
+.allCertLink {
+    margin-top: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.52rem 0.92rem;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    font-weight: 700;
+    transition: all var(--transition-fast);
+}
+
+.allCertLink:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(13, 110, 253, 0.05);
 }
 
 .groups {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 1.7rem;
 }
 
 .group h3 {
-    font-size: 0.85rem;
+    font-size: 0.77rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     color: var(--text-muted);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.45rem;
     border-bottom: 1px solid var(--border-color);
+    font-family: var(--font-mono);
 }
 
 .list {
     display: grid;
-    gap: 1rem;
+    gap: 0.7rem;
 }
 
 .certCard {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
     background: var(--gradient-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     transition: all var(--transition);
+    box-shadow: var(--shadow-sm);
 }
 
 .certCard:hover {
     border-color: var(--border-color-hover);
-    transform: translateX(4px);
+    transform: translateY(-2px);
 }
 
 .certInfo {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .certIcon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--accent-muted);
-    border-radius: var(--radius-sm);
+    border-radius: 10px;
     color: var(--accent);
 }
 
 .certName {
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 0.9rem;
+    font-weight: 700;
     color: var(--text-primary);
 }
 
@@ -80,12 +104,13 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.44rem 0.8rem;
     background: transparent;
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
+    border-radius: 999px;
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 700;
     transition: all var(--transition-fast);
 }
 
@@ -98,7 +123,6 @@
     .certCard {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem;
     }
 
     .credentialLink {

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiMail, FiGithub, FiLinkedin, FiHeart, FiCode } from 'react-icons/fi';
+import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi';
 import { personalInfo, navLinks } from '../../data/constants';
 import styles from './Contact.module.css';
 
@@ -31,15 +31,14 @@ const Contact = () => {
                 <motion.div
                     className={styles.content}
                     variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
+                    initial={false}
+                    animate="visible"
                 >
+                    <motion.p className="section-eyebrow" variants={itemVariants}>Contact</motion.p>
                     <motion.h2 variants={itemVariants}>Let's Connect</motion.h2>
                     <motion.p variants={itemVariants}>
-                        I'm always open to discussing backend engineering opportunities,
-                        system design challenges, or collaboration on interesting projects.
-                        Whether you're a recruiter, fellow developer, or just curious about my work—reach out!
+                        Open to backend engineering roles, full-stack product work, and system design collaborations.
+                        If you are hiring, building, or exploring a project together, I would be glad to connect.
                     </motion.p>
 
                     <motion.div className={styles.links} variants={itemVariants}>
@@ -80,8 +79,7 @@ const Contact = () => {
                 <motion.footer
                     className={styles.footer}
                     initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
+                    animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
                     <div className={styles.footerContent}>
@@ -136,16 +134,10 @@ const Contact = () => {
 
                         <div className={styles.footerBottom}>
                             <p className={styles.footerText}>
-                                © {currentYear} <span>{personalInfo.name}</span>
+                                © {currentYear} <span>{personalInfo.name}</span>. All rights reserved.
                             </p>
                             <p className={styles.techStack}>
-                                Built with <motion.span
-                                    animate={{ scale: [1, 1.2, 1] }}
-                                    transition={{ duration: 0.8, repeat: Infinity }}
-                                    style={{ display: 'inline-block' }}
-                                >
-                                    <FiHeart size={12} />
-                                </motion.span> using React & Vite
+                                Built with React and Vite.
                             </p>
                         </div>
                     </div>

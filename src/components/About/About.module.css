@@ -1,77 +1,88 @@
+.about {
+    background: var(--bg-primary);
+}
+
 .sectionHeader {
-    text-align: center;
-    margin-bottom: 4rem;
+    text-align: left;
+    margin-bottom: 2.2rem;
 }
 
 .sectionHeader h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 600;
+    margin-bottom: 0.55rem;
 }
 
 .headerUnderline {
-    width: 60px;
+    width: 84px;
     height: 4px;
-    background: var(--accent);
-    margin: 0 auto;
-    border-radius: 2px;
+    background: var(--gradient-accent);
+    border-radius: 999px;
 }
 
 .content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 2rem;
     align-items: start;
+}
+
+.left {
+    background: var(--gradient-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
 }
 
 .photoWrapper {
     position: relative;
-    width: 180px;
-    height: 180px;
-    margin-bottom: 2rem;
+    width: 172px;
+    height: 172px;
+    margin-bottom: 1.25rem;
+}
+
+.photoLink {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .photoPlaceholder {
     width: 100%;
     height: 100%;
-    border-radius: var(--radius-lg);
+    border-radius: 20px;
     background: var(--card-bg);
-    border: 2px solid var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--accent);
+    border: 2px solid rgba(13, 110, 253, 0.16);
     overflow: hidden;
     position: relative;
     z-index: 2;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 14px 30px rgba(9, 39, 83, 0.18);
 }
 
 .photoPlaceholder img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 20%;
 }
 
 .photoDecoration {
     position: absolute;
-    top: -10px;
-    right: -10px;
+    top: -8px;
+    left: -8px;
     width: 100%;
     height: 100%;
-    border: 2px solid var(--accent);
-    border-radius: var(--radius-lg);
-    opacity: 0.3;
+    border: 2px dashed rgba(13, 110, 253, 0.32);
+    border-radius: 22px;
     z-index: 1;
 }
 
 .summary {
-    font-size: 1.05rem;
+    font-size: 0.98rem;
     color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 2rem;
+    line-height: 1.9;
+    margin-bottom: 1.4rem;
     white-space: pre-line;
 }
 
@@ -82,17 +93,17 @@
 .highlights li {
     display: flex;
     align-items: flex-start;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
+    gap: 0.7rem;
+    margin-bottom: 0.75rem;
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.6;
 }
 
 .highlights li svg {
     color: var(--accent);
     flex-shrink: 0;
-    margin-top: 0.2rem;
+    margin-top: 0.18rem;
 }
 
 .right {
@@ -101,18 +112,17 @@
 }
 
 .sectionLabel {
-    font-size: 0.85rem;
+    font-size: 0.76rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
 }
 
 .timeline {
     position: relative;
-    padding-left: 1.5rem;
+    padding-left: 1.2rem;
 }
 
 .timeline::before {
@@ -122,12 +132,12 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, var(--accent), var(--border-color));
+    background: linear-gradient(to bottom, var(--accent), rgba(13, 110, 253, 0.1));
 }
 
 .timelineItem {
     position: relative;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
 }
 
 .timelineItem:last-child {
@@ -136,90 +146,105 @@
 
 .timelineMarker {
     position: absolute;
-    left: -1.5rem;
-    top: 0.25rem;
-    width: 12px;
-    height: 12px;
-    background: var(--accent);
+    left: -1.2rem;
+    top: 0.8rem;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    border: 2px solid var(--bg-secondary);
+    border: 2px solid var(--bg-primary);
     transform: translateX(-5px);
 }
 
 .timelineItem.college .timelineMarker {
     background: var(--accent);
-    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
 }
 
 .timelineItem.intermediate .timelineMarker {
-    background: #22c55e;
+    background: #1d9d73;
 }
 
 .timelineItem.school .timelineMarker {
-    background: #f59e0b;
+    background: #ec9b34;
 }
 
 .timelineContent {
     background: var(--gradient-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    padding: 1.25rem;
+    padding: 1rem;
     transition: all var(--transition);
 }
 
 .timelineContent:hover {
     border-color: var(--border-color-hover);
-    transform: translateX(4px);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .timelineContent h4 {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 0.98rem;
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.18rem;
 }
 
 .degree {
-    font-size: 0.9rem;
+    font-size: 0.86rem;
     color: var(--text-secondary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem;
 }
 
 .eduMeta {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
+    gap: 0.8rem;
+    margin-bottom: 0.45rem;
 }
 
 .eduMeta span {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    font-size: 0.8rem;
+    gap: 0.32rem;
+    font-size: 0.76rem;
     color: var(--text-muted);
 }
 
 .grade {
     display: inline-block;
-    padding: 0.25rem 0.75rem;
+    padding: 0.22rem 0.64rem;
     background: var(--accent-muted);
     color: var(--accent);
-    border-radius: var(--radius-sm);
-    font-size: 0.8rem;
-    font-weight: 600;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 700;
 }
 
 @media (max-width: 900px) {
     .content {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+    }
+
+    .right {
+        order: -1;
+    }
+
+    .sectionHeader {
+        text-align: center;
+    }
+
+    .headerUnderline {
+        margin: 0 auto;
+    }
+
+    .photoWrapper {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
 @media (max-width: 480px) {
     .eduMeta {
         flex-direction: column;
-        gap: 0.25rem;
+        gap: 0.2rem;
     }
 }

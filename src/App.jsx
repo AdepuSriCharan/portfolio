@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
@@ -7,13 +8,26 @@ import Skills from './components/Skills/Skills';
 import Certifications from './components/Certifications/Certifications';
 import Contact from './components/Contact/Contact';
 
+const DEFAULT_THEME = 'dark-theme';
+
 function App() {
+    const [currentTheme, setCurrentTheme] = useState(() => {
+        if (typeof window === 'undefined') {
+            return DEFAULT_THEME;
+        }
+        return localStorage.getItem('portfolio-theme') || DEFAULT_THEME;
+    });
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, {
         stiffness: 100,
         damping: 30,
         restDelta: 0.001
     });
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        localStorage.setItem('portfolio-theme', currentTheme);
+    }, [currentTheme]);
 
     return (
         <>
@@ -31,7 +45,7 @@ function App() {
                     zIndex: 1000
                 }}
             />
-            <Navbar />
+            <Navbar currentTheme={currentTheme} onThemeChange={setCurrentTheme} />
             <main>
                 <Hero />
                 <About />

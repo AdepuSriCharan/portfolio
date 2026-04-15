@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
-import { navLinks } from '../../data/constants';
+import { motion } from 'framer-motion';
+import { FiMenu, FiMoon, FiSun, FiX, FiZap } from 'react-icons/fi';
+import { navLinks, themeOptions } from '../../data/constants';
 import styles from './Navbar.module.css';
 
-const Navbar = () => {
+const Navbar = ({ currentTheme, onThemeChange }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -37,6 +37,12 @@ const Navbar = () => {
     const linkVariants = {
         hidden: { opacity: 0, y: -20 },
         visible: { opacity: 1, y: 0 },
+    };
+
+    const themeIconMap = {
+        'dark-theme': FiMoon,
+        'light-theme': FiSun,
+        'midnight-theme': FiZap
     };
 
     return (
@@ -83,6 +89,27 @@ const Navbar = () => {
                         </motion.li>
                     ))}
                 </ul>
+
+                <div className={styles.actions}>
+                    <span className={styles.themeLabel}>Theme</span>
+                    <div className={styles.themeButtons} role="group" aria-label="Select portfolio theme">
+                        {themeOptions.map((theme) => {
+                            const Icon = themeIconMap[theme.id];
+                            return (
+                                <button
+                                    key={theme.id}
+                                    type="button"
+                                    className={`${styles.themeButton} ${currentTheme === theme.id ? styles.activeTheme : ''}`}
+                                    onClick={() => onThemeChange(theme.id)}
+                                    aria-label={theme.label}
+                                    title={theme.label}
+                                >
+                                    <Icon size={14} />
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
             </div>
         </motion.nav>
     );
