@@ -43,7 +43,7 @@ const Hero = () => {
     const heroStats = [
         { value: "1st Place", label: "SIH Hackathon 2K26" },
         { value: "4x OCI", label: "Oracle Certifications" },
-        { value: "150+", label: "LeetCode Problems" }
+        { value: "200+", label: "LeetCode Problems" }
     ];
 
     return (

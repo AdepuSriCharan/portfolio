@@ -16,7 +16,7 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/adepu-sri-charan-b6b0b2298/",
     leetcode: "https://leetcode.com/u/Adepu_Sri_Charan/",
     atsKeywords: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL", "Docker", "React Native", "AWS", "System Design"],
-    resumeLink: "https://drive.google.com/file/d/16nK8gC0k-0p51Y0H6cAZWpWyK_f1cbxX/view?usp=drive_link",
+    resumeLink: withBase("/Adepu_Sri_Charan_Resume.pdf"),
     profileImage: withBase("/Profile_1.png"),
     allCertificatesLink: "https://drive.google.com/drive/folders/1S_Az2zSxklRcdhTOYgDD-cATXJ7_UbE9?usp=sharing"
 };
@@ -103,16 +103,27 @@ export const projects = [
         name: "AR Car Showcase",
         featured: true,
         isMajorProject: true,
-        description: "Major college project: A full-stack AR application for visualizing interactive 3D car models in augmented reality. Led a team as Team Lead, coordinating development and delivering a production-ready application.",
-        techStack: ["Spring Boot", "React Native", "Expo", "Viro React", "PostgreSQL", "AR/VR"],
+        description: "Production-ready Augmented Reality platform enabling users to explore, visualize, and customize life-sized 3D vehicles in real-world environments. Led the project from architecture and development to cloud deployment, public releases, and platform operations.",
+        techStack: ["Spring Boot", "React Native", "Expo", "Viro React", "PostgreSQL", "AR/VR", "Cloudflare", "Oracle Cloud"],
         highlights: [
-            "Team Lead: Coordinated development and architecture decisions",
-            "Developed backend APIs for car specifications and AR asset management",
-            "Implemented immersive AR experience for 3D car visualization",
-            "Built search-based workflows for retrieving vehicle data and specifications"
+            "Led a multidisciplinary team and drove architecture, development workflows, release management, and technical decision-making",
+            "Transformed an academic AR concept into a publicly accessible platform with live deployments, custom domain, mobile distribution, and production infrastructure",
+            "Engineered Spring Boot APIs for vehicle catalog management, specifications retrieval, search, recommendations, and 3D asset delivery",
+            "Built immersive AR experiences using React Native, Expo, and Viro React for life-sized 3D vehicle visualization and interaction",
+            "Deployed and operated cloud infrastructure on Oracle Cloud with Cloudflare CDN, DNS, SSL, caching, and security controls for reliable public access"
         ],
-        github: "https://github.com/AdepuSriCharan/AR-Car-Showcase",
-        architectureType: "Full-Stack AR"
+        github: "https://github.com/AR-Car-Showcase",
+        externalLinks: [
+            {
+                label: "Live Site",
+                url: "https://arcarshowcase.com/"
+            },
+            {
+                label: "Latest Release",
+                url: "https://github.com/AR-Car-Showcase/mobile-app/releases/latest"
+            }
+        ],
+        architectureType: "Production AR Platform"
     },
     {
         name: "MusicBoxd",
@@ -177,32 +188,61 @@ export const skills = {
     },
     backend: {
         title: "Backend & APIs",
-        items: ["Spring Boot", "Spring Security", "Spring Cloud", "Microservices", "REST APIs", "gRPC", "WebSockets", "Kafka"],
+        items: ["Spring Boot", "Spring Security", "Spring Cloud", "Microservices", "REST APIs", "gRPC", "WebSockets", "Kafka", "JWT", "Feign Client"],
         color: "#6db33f"
     },
     databases: {
         title: "Databases",
-        items: ["PostgreSQL", "MySQL", "Redis", "MongoDB"],
+        items: [
+            "PostgreSQL", "MySQL", "Redis", "Spring Data JPA"
+        ],
         color: "#336791"
     },
     mobile: {
         title: "Mobile Development",
-        items: ["React Native", "Expo", "Viro React (AR)"],
+        items: [
+            "React Native",
+            "Expo",
+            "Viro React",
+            "React Three Fiber",
+            "Android Development"
+        ],
         color: "#61dafb"
     },
     devops: {
         title: "DevOps & Cloud",
-        items: ["Docker", "AWS (EC2, S3)", "Git", "GitHub Actions", "ngrok", "Cloudflare Tunnel"],
+        items: [
+            "Docker",
+            "Oracle Cloud",
+            "AWS (EC2, S3)",
+            "Cloudflare",
+            "Nginx",
+            "GitHub Actions",
+            "Git",
+        ],
         color: "#2496ed"
     },
     frontend: {
         title: "Frontend",
-        items: ["React", "HTML5", "CSS3", "JavaScript"],
+        items: [
+            "React",
+            "Next.js",
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "TypeScript"
+        ],
         color: "#61dafb"
     },
     aiml: {
         title: "AI/ML (Exploring)",
-        items: ["LLMs", "RAG", "Vector Search", "Agentic Workflows", "Python ML"],
+        items: [
+            "LLMs",
+            "RAG",
+            "Vector Search",
+            "Agentic Workflows",
+            "Prompt Engineering"
+        ],
         color: "#ff6f00"
     }
 };
