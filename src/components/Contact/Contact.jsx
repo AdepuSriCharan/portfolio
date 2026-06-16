@@ -37,7 +37,7 @@ const Contact = () => {
                     <motion.p className="section-eyebrow" variants={itemVariants}>Contact</motion.p>
                     <motion.h2 variants={itemVariants}>Let's Connect</motion.h2>
                     <motion.p variants={itemVariants}>
-                        Open to backend engineering roles, full-stack product work, and system design collaborations.
+                        Open to AI engineering roles, Java backend opportunities, full-stack product work, and system design collaborations.
                         If you are hiring, building, or exploring a project together, I would be glad to connect.
                     </motion.p>
 

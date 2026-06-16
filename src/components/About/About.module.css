@@ -79,10 +79,10 @@
 }
 
 .summary {
-    font-size: 0.98rem;
+    font-size: 1.04rem;
     color: var(--text-secondary);
-    line-height: 1.9;
-    margin-bottom: 1.4rem;
+    line-height: 1.95;
+    margin-bottom: 1.7rem;
     white-space: pre-line;
 }
 
@@ -94,10 +94,10 @@
     display: flex;
     align-items: flex-start;
     gap: 0.7rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.95rem;
     color: var(--text-secondary);
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.97rem;
+    line-height: 1.7;
 }
 
 .highlights li svg {
@@ -222,6 +222,7 @@
 @media (max-width: 900px) {
     .content {
         grid-template-columns: 1fr;
+        gap: 1.8rem;
     }
 
     .right {
@@ -239,6 +240,10 @@
     .photoWrapper {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .left {
+        padding: 1.5rem;
     }
 }
 

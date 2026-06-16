@@ -3,37 +3,42 @@ const withBase = (assetPath) => `${import.meta.env.BASE_URL}${assetPath.replace(
 export const personalInfo = {
     name: "Adepu Sri Charan",
     roles: [
+        "AI Engineer",
         "Java Backend Engineer",
-        "Full-Stack Developer",
+        "Generative AI Developer",
         "Microservices Engineer",
-        "Cloud & DevOps Enthusiast",
-        "LLM & RAG Explorer"
+        "Full-Stack Developer"
     ],
-    tagline: "Building scalable backend systems and practical AI-enabled products",
+    tagline: "Building scalable distributed systems and production-ready Generative AI applications.",
     email: "sricharan.adepu36@gmail.com",
     phone: "+91-8297057873",
     github: "https://github.com/AdepuSriCharan",
     linkedin: "https://www.linkedin.com/in/adepu-sri-charan-b6b0b2298/",
     leetcode: "https://leetcode.com/u/Adepu_Sri_Charan/",
-    atsKeywords: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL", "Docker", "React Native", "AWS", "System Design"],
-    resumeLink: withBase("/Adepu_Sri_Charan_Resume.pdf"),
+    coreStack: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL", "Redis", "Docker", "AWS", "OCI"],
+    aiKeywords: ["LLMs", "RAG", "LangChain", "Vector Databases", "Agentic AI", "MCP"],
+    atsKeywords: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL", "Redis", "Docker", "AWS", "Generative AI", "LLMs", "RAG", "LangChain", "Vector Databases", "Agentic AI", "Prompt Engineering", "Embeddings", "OpenAI", "Spring AI", "MCP"],
+    resumeLink: "https://drive.google.com/file/d/16nK8gC0k-0p51Y0H6cAZWpWyK_f1cbxX/view?usp=drive_link",
     profileImage: withBase("/Profile_1.png"),
     allCertificatesLink: "https://drive.google.com/drive/folders/1S_Az2zSxklRcdhTOYgDD-cATXJ7_UbE9?usp=sharing"
 };
 
 export const aboutMe = {
-    summary: `Full-stack engineer focused on backend architecture, microservices, and cloud-native development using Java, Spring Boot, Kafka, and PostgreSQL.
-I design secure and scalable systems with clean APIs, event-driven workflows, and production-ready deployments.
+    summary: `Full-stack engineer specializing in Java backend development, modern frontend applications, distributed systems, and AI-powered products. Experienced in building scalable microservices with Spring Boot, Kafka, PostgreSQL, and Redis, while also developing web and immersive applications using React, Next.js, React Native, Expo, Viro React, and React Three Fiber.
 
-I also build end-to-end products with React Native and integrate applied AI features into real-world platforms.
-Currently exploring trends in LLMs, RAG systems, and agentic workflows to build practical, reliable AI experiences.`,
+Beyond backend and frontend engineering, I build production-ready Generative AI solutions using Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), vector databases, and agentic AI workflows.
+
+Passionate about combining modern software engineering with Generative AI to build intelligent, scalable, and reliable products. Currently focused on multi-agent systems, MCP-based architectures, AI orchestration frameworks, and enterprise-grade LLM applications.`,
     highlights: [
         "Winner (1st Place) at Smart Innovation Hackathon 2K26 with an SIH-aligned health-tech solution",
         "Team Lead for hackathon and major project implementations",
         "Built complete end-to-end systems across backend, mobile, and data layers",
         "Experienced with Spring Boot, Spring Security, Spring Cloud, and microservices patterns",
         "Developed event-driven services using Kafka, Redis, and gRPC communication",
-        "Exploring LLMs, RAG pipelines, and AI-assisted product workflows",
+        "Built and experimented with advanced RAG architectures including Hybrid Search, Multi-Query Retrieval, Parent-Child Retrieval, and Contextual Compression",
+        "Developed LLM-powered applications using vector search, embeddings, prompt engineering, and retrieval orchestration",
+        "Exploring Agentic AI, MCP servers, multi-agent systems, AI workflows, and enterprise GenAI architectures",
+        "Experienced in integrating Generative AI features into production-ready applications",
         "Oracle Cloud Infrastructure certified across Foundations, Developer, DevOps, and AI"
     ]
 };
@@ -235,13 +240,22 @@ export const skills = {
         color: "#61dafb"
     },
     aiml: {
-        title: "AI/ML (Exploring)",
+        title: "Generative AI & AI Engineering",
         items: [
             "LLMs",
             "RAG",
-            "Vector Search",
-            "Agentic Workflows",
-            "Prompt Engineering"
+            "Vector Databases",
+            "Embeddings",
+            "Semantic Search",
+            "Hybrid Search",
+            "Prompt Engineering",
+            "Spring AI",
+            "LangChain",
+            "Agentic AI",
+            "Multi-Agent Systems",
+            "MCP",
+            "AI Workflows",
+            "OpenAI APIs"
         ],
         color: "#ff6f00"
     }

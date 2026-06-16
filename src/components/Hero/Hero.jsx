@@ -103,7 +103,10 @@ const Hero = () => {
                         {personalInfo.tagline}
                     </motion.p>
                     <motion.p className={styles.atsLine} variants={itemVariants}>
-                        <strong>Core Stack:</strong> {personalInfo.atsKeywords.join(' · ')}
+                        <strong>Backend Stack:</strong> {personalInfo.coreStack.join(' · ')}
+                    </motion.p>
+                    <motion.p className={styles.atsLine} variants={itemVariants}>
+                        <strong>GenAI Focus:</strong> {personalInfo.aiKeywords.join(' · ')}
                     </motion.p>
 
                     <motion.div className={styles.buttons} variants={itemVariants}>

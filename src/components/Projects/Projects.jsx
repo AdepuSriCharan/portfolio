@@ -34,7 +34,7 @@ const Projects = () => {
                 >
                     <p className="section-eyebrow">Projects</p>
                     <h2>Projects</h2>
-                    <p>Case studies focused on architecture, product impact, and delivery ownership.</p>
+                    <p>Case studies focused on backend architecture, product impact, delivery ownership, and AI-ready engineering foundations.</p>
                 </motion.div>
 
                 <motion.div

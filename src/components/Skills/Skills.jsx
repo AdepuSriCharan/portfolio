@@ -92,7 +92,7 @@ const Skills = () => {
                 >
                     <p className="section-eyebrow">Skills</p>
                     <h2>Technical Skills</h2>
-                    <p>Core technologies I use to build secure, scalable, and production-ready applications.</p>
+                    <p>Core technologies I use to build scalable backend systems and production-ready Generative AI applications.</p>
                 </motion.div>
 
                 <motion.div
