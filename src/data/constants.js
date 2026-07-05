@@ -305,7 +305,7 @@ export const education = [
         location: "Moinabad Mandal, Hyderabad",
         degree: "B.Tech in Computer Science and Engineering",
         duration: "October 2022 – 2026",
-        grade: "CGPA: 8.2",
+        grade: "CGPA: 8.34",
         type: "college"
     },
     {
