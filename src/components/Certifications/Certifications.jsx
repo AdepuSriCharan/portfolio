@@ -1,21 +1,12 @@
 import { motion } from 'framer-motion';
 import { FiAward, FiExternalLink } from 'react-icons/fi';
 import { certifications, personalInfo } from '../../data/constants';
+import { containerVariants, viewport } from '../../utils/motion';
 import styles from './Certifications.module.css';
 
 const Certifications = () => {
     const oracleCerts = certifications.filter(cert => cert.issuer === 'Oracle');
     const nptelCerts = certifications.filter(cert => cert.issuer === 'NPTEL');
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-            },
-        },
-    };
 
     const itemVariants = {
         hidden: { opacity: 0, x: -20 },
@@ -65,12 +56,13 @@ const Certifications = () => {
                 <motion.div
                     className={styles.header}
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={viewport}
                     transition={{ duration: 0.6 }}
                 >
                     <p className="section-eyebrow">Certifications</p>
                     <h2>Certifications</h2>
-                    <p>Professional certifications validating cloud and programming expertise.</p>
+                    <p>Cloud and programming certifications.</p>
                     <motion.a
                         href={personalInfo.allCertificatesLink}
                         target="_blank"
@@ -88,8 +80,9 @@ const Certifications = () => {
                     <motion.div
                         className={styles.group}
                         variants={containerVariants}
-                        initial={false}
-                        animate="visible"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewport}
                     >
                         <h3>Oracle Cloud Infrastructure</h3>
                         <div className={styles.list}>
@@ -102,8 +95,9 @@ const Certifications = () => {
                     <motion.div
                         className={styles.group}
                         variants={containerVariants}
-                        initial={false}
-                        animate="visible"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewport}
                     >
                         <h3>NPTEL</h3>
                         <div className={styles.list}>

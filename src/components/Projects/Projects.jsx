@@ -1,19 +1,10 @@
 import { motion } from 'framer-motion';
 import { FiGithub, FiGitlab, FiArrowRight, FiStar, FiUsers, FiAward, FiSmartphone, FiUser, FiExternalLink } from 'react-icons/fi';
 import { projects } from '../../data/constants';
+import { containerVariants, viewport } from '../../utils/motion';
 import styles from './Projects.module.css';
 
 const Projects = () => {
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.15,
-            },
-        },
-    };
-
     const cardVariants = {
         hidden: { opacity: 0, y: 30 },
         visible: {
@@ -29,19 +20,21 @@ const Projects = () => {
                 <motion.div
                     className={styles.header}
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={viewport}
                     transition={{ duration: 0.6 }}
                 >
                     <p className="section-eyebrow">Projects</p>
                     <h2>Projects</h2>
-                    <p>Case studies focused on backend architecture, product impact, delivery ownership, and AI-ready engineering foundations.</p>
+                    <p>Selected work across backend systems, AI, and mobile.</p>
                 </motion.div>
 
                 <motion.div
                     className={styles.grid}
                     variants={containerVariants}
-                    initial={false}
-                    animate="visible"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewport}
                 >
                     {projects.map((project, index) => (
                         <motion.div
@@ -56,6 +49,9 @@ const Projects = () => {
                             <div className={styles.cardHeader}>
                                 <div className={styles.cardTitle}>
                                     <h3>{project.name}</h3>
+                                    {project.subtitle && (
+                                        <p className={styles.subtitle}>{project.subtitle}</p>
+                                    )}
                                     <div className={styles.badges}>
                                         {project.featured && (
                                             <span className={`${styles.badge} ${styles.featuredBadge}`}>

@@ -1,0 +1,221 @@
+.experience {
+    background: var(--bg-secondary);
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+.header h2 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 600;
+    margin-bottom: 0.72rem;
+}
+
+.header p {
+    color: var(--text-secondary);
+    max-width: 760px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.roleCard {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 1.1rem;
+}
+
+.timelineRail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.6rem;
+}
+
+.railDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-muted);
+    flex-shrink: 0;
+}
+
+.railLine {
+    flex: 1;
+    width: 2px;
+    margin-top: 0.5rem;
+    background: linear-gradient(180deg, var(--border-color-hover) 0%, transparent 100%);
+}
+
+.roleBody {
+    background: linear-gradient(130deg, var(--accent-muted) 0%, var(--bg-card) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.35rem;
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.roleBody:hover {
+    border-color: var(--border-color-hover);
+    box-shadow: var(--shadow-md);
+}
+
+.roleHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 0.9rem;
+}
+
+.roleTitle {
+    font-size: 1.22rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.company {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.42rem;
+    margin-top: 0.25rem;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.94rem;
+}
+
+.roleMeta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+}
+
+.metaLine {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    white-space: nowrap;
+}
+
+.currentBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.24rem 0.68rem;
+    border-radius: 999px;
+    background: rgba(20, 148, 109, 0.14);
+    border: 1px solid rgba(20, 148, 109, 0.35);
+    color: #157c5d;
+    font-size: 0.64rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+}
+
+:root[data-theme='dark-theme'] .currentBadge,
+:root[data-theme='midnight-theme'] .currentBadge {
+    color: #4ade80;
+}
+
+.pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.summary {
+    color: var(--text-secondary);
+    line-height: 1.75;
+    font-size: 0.94rem;
+    margin-bottom: 1.05rem;
+}
+
+.highlights {
+    list-style: none;
+    margin-bottom: 1.1rem;
+}
+
+.highlights li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.52rem;
+    color: var(--text-secondary);
+    font-size: 0.87rem;
+    line-height: 1.55;
+}
+
+.highlights li svg {
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.tech {
+    padding: 0.3rem 0.68rem;
+    background: var(--bg-card-hover);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    transition: all var(--transition-fast);
+}
+
+.tech:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+@media (max-width: 640px) {
+    .roleCard {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .timelineRail {
+        display: none;
+    }
+
+    .roleBody {
+        padding: 1.05rem;
+    }
+
+    .roleHeader {
+        flex-direction: column;
+    }
+
+    .roleMeta {
+        align-items: flex-start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pulse {
+        animation: none;
+    }
+}

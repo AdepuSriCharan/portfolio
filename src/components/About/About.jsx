@@ -1,38 +1,21 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FiCheck, FiMapPin, FiCalendar } from 'react-icons/fi';
 import { aboutMe, education, personalInfo } from '../../data/constants';
+import { containerVariants, itemVariants, viewport } from '../../utils/motion';
 import styles from './About.module.css';
 
 const About = () => {
-    const { scrollYProgress } = useScroll();
-    const headerOpacity = useTransform(scrollYProgress, [0, 0.2, 0.3], [0, 1, 1]);
-    const headerY = useTransform(scrollYProgress, [0, 0.2, 0.3], [50, 0, 0]);
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.6, ease: 'easeOut' },
-        },
-    };
+    const paragraphs = aboutMe.summary.split('\n\n');
 
     return (
         <section className={`section ${styles.about}`} id="about">
             <div className="container">
                 <motion.div
                     className={styles.sectionHeader}
-                    style={{ opacity: headerOpacity, y: headerY }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={viewport}
+                    transition={{ duration: 0.6, ease: 'easeOut' }}
                 >
                     <p className="section-eyebrow">About</p>
                     <h2>About Me</h2>
@@ -42,16 +25,21 @@ const About = () => {
                 <motion.div
                     className={styles.content}
                     variants={containerVariants}
-                    initial={false}
-                    animate="visible"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewport}
                 >
                     <motion.div className={styles.left} variants={itemVariants}>
-                        <p className={styles.summary}>{aboutMe.summary}</p>
+                        <div className={styles.summary}>
+                            {paragraphs.map((paragraph) => (
+                                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                            ))}
+                        </div>
 
                         <ul className={styles.highlights}>
-                            {aboutMe.highlights.map((highlight, index) => (
+                            {aboutMe.highlights.map((highlight) => (
                                 <motion.li
-                                    key={index}
+                                    key={highlight}
                                     variants={itemVariants}
                                     whileHover={{ x: 5, color: 'var(--accent)' }}
                                 >
@@ -72,7 +60,14 @@ const About = () => {
                                 title="Click to view full image"
                             >
                                 <div className={styles.photoPlaceholder}>
-                                    <img src={personalInfo.profileImage} alt={personalInfo.name} />
+                                    <img
+                                        src={personalInfo.profileImage}
+                                        alt={personalInfo.name}
+                                        width="736"
+                                        height="920"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
                                 </div>
                             </a>
                             <motion.div
@@ -87,9 +82,9 @@ const About = () => {
 
                         <h3 className={styles.sectionLabel}>Education</h3>
                         <div className={styles.timeline}>
-                            {education.map((edu, index) => (
+                            {education.map((edu) => (
                                 <motion.div
-                                    key={index}
+                                    key={edu.institution}
                                     className={`${styles.timelineItem} ${styles[edu.type]}`}
                                     variants={itemVariants}
                                 >

@@ -1,5 +1,5 @@
 .projects {
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
 }
 
 .header {
@@ -67,6 +67,15 @@
     font-size: 1.18rem;
     font-weight: 600;
     letter-spacing: -0.01em;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 700;
+    font-family: var(--font-mono);
+    letter-spacing: 0.01em;
+    margin-top: -0.15rem;
 }
 
 .badges {

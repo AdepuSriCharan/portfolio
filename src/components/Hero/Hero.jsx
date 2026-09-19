@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiDownload, FiCode, FiChevronDown, FiMail } from 'react-icons/fi';
-import { personalInfo } from '../../data/constants';
+import { FiGithub, FiLinkedin, FiDownload, FiCode, FiChevronDown, FiMail, FiEdit3 } from 'react-icons/fi';
+import { personalInfo, heroStats } from '../../data/constants';
 import styles from './Hero.module.css';
 
 const Hero = () => {
@@ -40,12 +40,6 @@ const Hero = () => {
         },
     };
 
-    const heroStats = [
-        { value: "1st Place", label: "SIH Hackathon 2K26" },
-        { value: "4x OCI", label: "Oracle Certifications" },
-        { value: "200+", label: "LeetCode Problems" }
-    ];
-
     return (
         <section className={styles.hero} id="hero">
             <motion.div
@@ -66,7 +60,14 @@ const Hero = () => {
                         title="Click to view full image"
                     >
                         <div className={styles.photoPlaceholder}>
-                            <img src={personalInfo.profileImage} alt={personalInfo.name} />
+                            <img
+                                src={personalInfo.profileImage}
+                                alt={personalInfo.name}
+                                width="736"
+                                height="920"
+                                fetchPriority="high"
+                                decoding="async"
+                            />
                         </div>
                     </a>
                     <motion.div
@@ -102,13 +103,6 @@ const Hero = () => {
                     <motion.p className={styles.tagline} variants={itemVariants}>
                         {personalInfo.tagline}
                     </motion.p>
-                    <motion.p className={styles.atsLine} variants={itemVariants}>
-                        <strong>Backend Stack:</strong> {personalInfo.coreStack.join(' · ')}
-                    </motion.p>
-                    <motion.p className={styles.atsLine} variants={itemVariants}>
-                        <strong>GenAI Focus:</strong> {personalInfo.aiKeywords.join(' · ')}
-                    </motion.p>
-
                     <motion.div className={styles.buttons} variants={itemVariants}>
                         <motion.a
                             href={personalInfo.github}
@@ -149,6 +143,16 @@ const Hero = () => {
                             <FiMail /> Contact
                         </motion.a>
                         <motion.a
+                            href={personalInfo.medium}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-secondary"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <FiEdit3 /> Medium
+                        </motion.a>
+                        <motion.a
                             href={personalInfo.resumeLink}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -161,8 +165,8 @@ const Hero = () => {
                     </motion.div>
 
                     <motion.div className={styles.stats} variants={itemVariants}>
-                        {heroStats.map((stat, index) => (
-                            <div key={index} className={styles.statCard}>
+                        {heroStats.map((stat) => (
+                            <div key={stat.label} className={styles.statCard}>
                                 <span className={styles.statValue}>{stat.value}</span>
                                 <span className={styles.statLabel}>{stat.label}</span>
                             </div>

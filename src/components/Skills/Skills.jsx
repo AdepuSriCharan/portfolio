@@ -9,6 +9,7 @@ import {
     FiCpu
 } from 'react-icons/fi';
 import { skills } from '../../data/constants';
+import { containerVariants, viewport } from '../../utils/motion';
 import styles from './Skills.module.css';
 
 const iconMap = {
@@ -23,16 +24,6 @@ const iconMap = {
 
 const Skills = () => {
     const skillEntries = Object.entries(skills);
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-            },
-        },
-    };
 
     const cardVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -87,19 +78,21 @@ const Skills = () => {
                 <motion.div
                     className={styles.header}
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={viewport}
                     transition={{ duration: 0.6 }}
                 >
                     <p className="section-eyebrow">Skills</p>
                     <h2>Technical Skills</h2>
-                    <p>Core technologies I use to build scalable backend systems and production-ready Generative AI applications.</p>
+                    <p>Technologies I work with regularly.</p>
                 </motion.div>
 
                 <motion.div
                     className={styles.skillsContainer}
                     variants={containerVariants}
-                    initial={false}
-                    animate="visible"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewport}
                 >
                     {skillEntries.map(([key, category]) => (
                         <SkillCard key={key} categoryKey={key} category={category} />

@@ -1,20 +1,11 @@
 import { motion } from 'framer-motion';
 import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi';
 import { personalInfo, navLinks } from '../../data/constants';
+import { containerVariants, viewport } from '../../utils/motion';
 import styles from './Contact.module.css';
 
 const Contact = () => {
     const currentYear = new Date().getFullYear();
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-            },
-        },
-    };
 
     const itemVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -31,14 +22,14 @@ const Contact = () => {
                 <motion.div
                     className={styles.content}
                     variants={containerVariants}
-                    initial={false}
-                    animate="visible"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewport}
                 >
                     <motion.p className="section-eyebrow" variants={itemVariants}>Contact</motion.p>
                     <motion.h2 variants={itemVariants}>Let's Connect</motion.h2>
                     <motion.p variants={itemVariants}>
-                        Open to AI engineering roles, Java backend opportunities, full-stack product work, and system design collaborations.
-                        If you are hiring, building, or exploring a project together, I would be glad to connect.
+                        Open to AI engineering and Java backend roles. Feel free to reach out.
                     </motion.p>
 
                     <motion.div className={styles.links} variants={itemVariants}>
@@ -79,7 +70,8 @@ const Contact = () => {
                 <motion.footer
                     className={styles.footer}
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={viewport}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
                     <div className={styles.footerContent}>

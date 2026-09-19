@@ -83,7 +83,10 @@
     color: var(--text-secondary);
     line-height: 1.95;
     margin-bottom: 1.7rem;
-    white-space: pre-line;
+}
+
+.summary p + p {
+    margin-top: 1.05rem;
 }
 
 .highlights {

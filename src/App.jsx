@@ -3,7 +3,9 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
+import Experience from './components/Experience/Experience';
 import Projects from './components/Projects/Projects';
+import OpenSource from './components/OpenSource/OpenSource';
 import Skills from './components/Skills/Skills';
 import Certifications from './components/Certifications/Certifications';
 import Contact from './components/Contact/Contact';
@@ -45,11 +47,14 @@ function App() {
                     zIndex: 1000
                 }}
             />
+            <a className="skip-link" href="#about">Skip to content</a>
             <Navbar currentTheme={currentTheme} onThemeChange={setCurrentTheme} />
-            <main>
+            <main id="main-content">
                 <Hero />
                 <About />
+                <Experience />
                 <Projects />
+                <OpenSource />
                 <Skills />
                 <Certifications />
                 <Contact />
